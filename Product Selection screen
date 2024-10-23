@@ -1,0 +1,18 @@
+import React, { useState } from 'react';
+import { Picker } from '@react-native-picker/picker';
+
+const ProductPicker = () => {
+  const [selectedProduct, setSelectedProduct] = useState('');
+  return (
+    <Picker
+      selectedValue={selectedProduct}
+      onValueChange={(itemValue) => setSelectedProduct(itemValue)}
+    >
+      <Picker.Item label="Select a Product" value="" />
+      <Picker.Item label="Product A" value="product_a" />
+      <Picker.Item label="Product B" value="product_b" />
+      {/* Add more products */}
+    </Picker>
+  );
+};
+export default ProductPicker;
