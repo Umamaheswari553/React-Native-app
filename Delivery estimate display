@@ -1,0 +1,10 @@
+const getEstimatedDeliveryDate = (pincode) => {
+  // Simulated logic: assume different pincode ranges for different delivery times
+  if (pincode.startsWith('5')) {
+    return 'Delivery in 2-3 days';
+  } else if (pincode.startsWith('6')) {
+    return 'Delivery in 5-7 days';
+  } else {
+    return 'Delivery in 7-10 days';
+  }
+};
