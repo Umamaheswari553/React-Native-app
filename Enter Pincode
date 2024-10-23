@@ -1,0 +1,28 @@
+import React, { useState } from 'react';
+import { TextInput, View, Button, Text } from 'react-native';
+
+const PincodeInput = ({ onPincodeSubmit }) => {
+  const [pincode, setPincode] = useState('');
+
+  const handlePincodeSubmit = () => {
+    if (pincode.length === 6) {
+      onPincodeSubmit(pincode);
+    } else {
+      alert('Please enter a valid 6-digit pincode');
+    }
+  };
+
+  return (
+    <View>
+      <TextInput
+        value={pincode}
+        onChangeText={setPincode}
+        placeholder="Enter your Pincode"
+        keyboardType="numeric"
+        maxLength={6}
+      />
+      <Button title="Get Delivery Estimate" onPress={handlePincodeSubmit} />
+    </View>
+  );
+};
+export default PincodeInput;
