@@ -1,0 +1,25 @@
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import ProductPicker from './components/ProductPicker';
+import PincodeInput from './components/PincodeInput';
+
+const App = () => {
+  const [deliveryEstimate, setDeliveryEstimate] = useState('');
+
+  const handlePincodeSubmit = (pincode) => {
+    const estimate = getEstimatedDeliveryDate(pincode);
+    setDeliveryEstimate(estimate);
+  };
+
+  return (
+    <View>
+      <Text>Select a Product</Text>
+      <ProductPicker />
+      <PincodeInput onPincodeSubmit={handlePincodeSubmit} />
+      {deliveryEstimate && (
+        <Text>Estimated Delivery: {deliveryEstimate}</Text>
+      )}
+    </View>
+  );
+};
+export default App;
